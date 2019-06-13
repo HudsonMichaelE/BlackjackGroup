@@ -24,7 +24,7 @@ public interface Player {
 	void getCardValue(char card); //sorting out card values I guess?
 	int getScore(); //returns player score
 	public void addtoHand(char card); //adds cards to the players hand
-	public ArrayList<char> displayCards(); // returns all the cards n the player's hand
+	public Character displayCards(); // returns all the cards n the player's hand, to be called in BlackjackSingleton
 
 	
 }

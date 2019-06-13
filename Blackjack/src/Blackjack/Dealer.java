@@ -2,16 +2,55 @@ package Blackjack;
 import java.util.Random;
 
 public class Dealer implements Player {
-	ArrayList<char> hand;
-	private static char[] cards;
+	private static ArrayList<Character> hand;
+	private static ArrayList<Character> cards;
+	private static char[] card;
 	private int n;
-	public Dealer() {
-		     char[] suits = {'A','A','A','A', 'J','J','J','J','Q','Q','Q','Q','K','K','K','K'};
-		     char[] numbers = {'2','2','2','2','3','3','3','3','4','4','4','4','5','5','5','5','6','6','6','6','7','7','7','7','8','8','8','8','9','9','9','9','0','0','0','0'};
-		     cards = concat(suits,numbers);
+	private int score;
+	import java.util.ArrayList;
+	import java.util.Arrays;
+	import java.util.Collections;
+
 		
-	}
-	
+		public Dealer() {
+				char[] card = {'A','A','A','A', 'J','J','J','J','Q','Q','Q','Q','K','K','K','K','2','2','2','2','3','3','3',
+			    		 '3','4','4','4','4','5','5','5','5','6','6','6','6','7','7','7','7','8','8','8','8','9','9','9','9','0','0','0','0'};
+		        Character[] newArray = new Character[card.length];
+		        int i = 0;
+		        for (char value : card) {
+		            newArray[i++] = Character.valueOf(value);
+		        }
+		        cards = new ArrayList<Character>(Arrays.asList(newArray));
+		       
+			}
+			public void deal(Player p) {
+				
+			 
+			if(cards.size() == 52) {
+			 
+					Character c1 = cards.get(0);
+					p.addtoHand(c1);
+					cards.remove(0);
+					Character c2 = cards.get(0);
+					p.addtoHand(c2);
+					cards.remove(0);
+				
+			}
+			
+			else {
+				
+				Character c3 = cards.get(0);
+				p.addtoHand(c3);
+				cards.remove(0);
+			
+			}
+			
+		}
+
+		public static void shuffle() {
+			  Collections.shuffle(cards); 
+			  
+		}
 	@Override
 	boolean doesPlayerHit() {
 		if (score < = 17)
@@ -57,61 +96,20 @@ public class Dealer implements Player {
 		
 	}
 	
-	public static void shuffle() {
-		 int index;
-		    Random random = new Random();
-		    for (int i = cards.length - 1; i > 0; i--)
-		    {
-		        index = random.nextInt(i + 1);
-		        if (index != i)
-		        {
-		            cards[index] ^= cards[i];
-		            cards[i] ^= cards[index];
-		            cards[index] ^= cards[i];
-		        }
-		    }
-			
-		
-		
-	}
-	
-	public deal(Player p) {
-		if(cards.length() == 52) {
-				shuffle();
-			for(int i = 0; i < 2; i++)
-				char c = cards[n];
-					p.addtoHand(n);
-					n++;
-		}
-		
-		else {
-			for(int i = 0; i < 1; i++)
-				char c = cards[n];
-				p.addtoHand(n);
-				n++;
-			
-		
-		}
-		
-	}
 	
 	public void addtoHand(char card) {
 				hand.add(card);
 	}
 	
-	public ArrayList<char> displayCards(){
-		
-					return hand;
+	public Character displayCards(){
+		Character c;
+		for (Character p : hand)
+				c = p
+		return c;
 	}
 	
 	
-	 static char[] concat(char[] a, char[] b) {
-		   char[] c= new char[a.length+b.length];
-		   System.arraycopy(a, 0, c, 0, a.length);
-		   System.arraycopy(b, 0, c, a.length, b.length);
-		   return c;
-		}
-	}
+	
 
 
 }
