@@ -23,7 +23,9 @@ public class Dealer implements Player {
 		        cards = new ArrayList<Character>(Arrays.asList(newArray));
 		       
 			}
-			public void deal(Player p) {
+		
+		
+		public void deal(Player p) {
 				
 			 
 			if(cards.size() == 52) {
@@ -47,10 +49,15 @@ public class Dealer implements Player {
 			
 		}
 
+		
+
+		
 		public static void shuffle() {
 			  Collections.shuffle(cards); 
 			  
 		}
+		
+		
 	@Override
 	boolean doesPlayerHit() {
 		if (score < = 17)
@@ -90,17 +97,19 @@ public class Dealer implements Player {
 	}
 	}
 	
+
 	@Override
 	int getScore() {
 		return score;
 		
 	}
 	
-	
+	@Override
 	public void addtoHand(char card) {
 				hand.add(card);
 	}
 	
+	@Override
 	public Character displayCards(){
 		Character c;
 		for (Character p : hand)
