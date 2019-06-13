@@ -4,11 +4,12 @@ public interface Player {
 
 	int placeBet();
 	
-	Boolean doesPlayerHit();
+	boolean doesPlayerHit();
 	
 	void Hit(char Card);
 	
 	int getScore();
 	
+	int getShowingScore();
 	
 }
