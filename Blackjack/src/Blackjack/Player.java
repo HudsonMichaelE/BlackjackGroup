@@ -1,14 +1,28 @@
 package Blackjack;
 
-public interface Player {
+import java.util.ArrayList;
 
-	int placeBet();
+public interface Player {
 	
-	Boolean doesPlayerHit();
+	/**
+	 * Template interface for user-created players
+	 * User needs to implement the following variables:
+	 * int wallet;
+	 * int score;
+	 * if playing with character hands, needs an ArrayList<Character> hand
+	 * 
+	 * WARNING: using a 'char' for the cards breaks when at card value '10'. Use value 0 or value 1 to represent this instead
+	 * 
+	 * @return nothing I guess? uncertain. perhaps should return score so winning player ends the game immediately? 
+	 * 
+	 * these notes brought to you by mary
+	 */
 	
-	void Hit(char Card);
-	
-	int getScore();
+	int placeBet();  //your logic for how much and when to bet
+	int getWallet(); //how much money you have.
+	boolean doesPlayerHit(); //when do you hit? 
+	void Hit(char card); //sorting out card values I guess?
+	int getScore(); //returns player score
 	
 	
 }
