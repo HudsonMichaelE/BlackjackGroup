@@ -105,7 +105,7 @@ public class Dealer implements Player {
 	}
 	
 	@Override
-	public void addtoHand(char card) {
+	public void addtoHand(Character card) {
 				hand.add(card);
 	}
 	
