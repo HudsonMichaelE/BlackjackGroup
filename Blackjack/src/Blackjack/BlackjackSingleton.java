@@ -9,7 +9,6 @@ public class BlackjackSingleton {
 	private Deck deck;
 	
 	private int playerNum = 0;
-	private int pot = 0;
 	
 	private static BlackjackSingleton instance;
 	
@@ -20,7 +19,7 @@ public class BlackjackSingleton {
 		deck = new Deck();
 	}
 	
-	public BlackjackSingleton getInstance() {
+	public static BlackjackSingleton getInstance() {
 		if(instance == null) {
 			instance = new BlackjackSingleton();
 		}
@@ -73,8 +72,6 @@ public class BlackjackSingleton {
 				}
 			}
 		}
-		
-		
 	}
 	
 }
