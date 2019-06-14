@@ -22,5 +22,5 @@ public interface Player {
 	void getCardValue(Character card); //sorting out card values I guess?
 	int getScore(); //returns player score
 	public void addtoHand(Character card); //adds cards to the players hand
-	public Character displayCards(); // returns all the cards n the player's hand
+	public void displayCards(); // prints all the cards n the player's hand
 }
