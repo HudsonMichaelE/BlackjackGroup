@@ -42,7 +42,7 @@ public class MaryPlayer implements Player{
 	}
 
 	@Override
-	public void getCardValue(char card) {
+	public void getCardValue(Character card) {
 		while (doesPlayerHit() == true) {
 			if (card == 'A') {
 				if (score > 11) 

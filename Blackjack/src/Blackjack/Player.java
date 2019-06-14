@@ -17,11 +17,13 @@ public interface Player {
 	 */
 	void placeBet();  //your logic for how much and when to bet
 	int getWallet(); //how much money you have.
-	void addWinnings(); //add bet to the wallet.
+	void win(); //add bet to the wallet.
+	void bust(); //lose your bet.
 	boolean doesPlayerHit(); //when do you hit? 
 	void getCardValue(Character card); //sorting out card values I guess?
 	int getScore(); //returns player score
 	void addtoHand(Character card); //adds cards to the players hand
 	void displayCards(); // displays all the cards in the player's hand, to be used at the end of the game.
+	
 }
 

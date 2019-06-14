@@ -41,7 +41,7 @@ public class BlackjackSingleton {
 	public void Round() {
 		//players turn
 		for(int i = 0; i < playerNum; i++) {
-			pot += players.get(i).placeBet();
+			players.get(i).placeBet();
 			while(players.get(i).doesPlayerHit()) {
 				players.get(i).addtoHand(deck.draw());
 			}
@@ -51,6 +51,30 @@ public class BlackjackSingleton {
 		while(dealer.doesPlayerHit()) {
 			dealer.addtoHand(deck.draw());
 		}
+		
+		endRound();
+	}
+	
+	public void endRound() {
+		if(dealer.getScore() == 21) {
+			for(Player player : players) {
+				player.bust();
+			}
+		} else if (dealer.getScore() > 21) {
+			for(Player player : players) {
+				player.win();
+			}
+		} else {
+			for(Player player : players) {
+				if(player.getScore() <= 21 &&  player.getScore() > dealer.getScore()) {
+					player.win();
+				} else {
+					player.bust();
+				}
+			}
+		}
+		
+		
 	}
 	
 }

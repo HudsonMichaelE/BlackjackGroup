@@ -49,8 +49,9 @@ public class MichaelPlayer implements Player{
 	}
 	
 	@Override
-	public void addWinnings() {
-		wallet += (2*bet);
+	public void win() {
+		wallet += bet;
+		bet = 0;
 	}
 
 	@Override
@@ -92,8 +93,13 @@ public class MichaelPlayer implements Player{
 	}
 
 	@Override
-	public String displayCards() {
+	public void displayCards() {
 		// TODO Auto-generated method stub
-		return "BUTTS";
+	}
+	
+	@Override
+	public void bust() {
+		wallet -= bet;
+		bet = 0;
 	}
 }
