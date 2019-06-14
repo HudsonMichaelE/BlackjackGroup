@@ -40,6 +40,7 @@ public class MichaelPlayer implements Player{
 	@Override
 	public void addtoHand(Character card) {
 		//Michael has a couple of Aces up his sleeve!
+		//System.out.println("Michael Hits");
 		if(score == 10) {
 			card = 'A';
 		}
@@ -61,6 +62,7 @@ public class MichaelPlayer implements Player{
 		} else {
 			bet = 10;
 		}
+		System.out.println("Michael bets " + bet);
 	}
 
 	@Override
@@ -94,7 +96,11 @@ public class MichaelPlayer implements Player{
 
 	@Override
 	public void displayCards() {
-		// TODO Auto-generated method stub
+		System.out.print("Michael's hand: ");
+		for(Character card : hand) {
+			System.out.print(card + " ");
+		}
+		System.out.println("\nTotal score: " + score + "\n");
 	}
 	
 	@Override

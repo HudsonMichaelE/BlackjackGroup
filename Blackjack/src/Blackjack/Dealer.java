@@ -6,25 +6,26 @@ import java.util.Collections;
 
 
 public class Dealer implements Player {
-	private static ArrayList<Character> hand;
-	private static ArrayList<Character> cards;
+	private ArrayList<Character> hand;
+	//private static ArrayList<Character> cards;
 	private int score;
 	
 		
 	public Dealer() {
-				char[] card = {'A','A','A','A', 'J','J','J','J','Q','Q','Q','Q','K','K','K','K','2','2','2','2','3','3','3',
+		hand = new ArrayList<Character>();
+		score = 0;
+				/*char[] card = {'A','A','A','A', 'J','J','J','J','Q','Q','Q','Q','K','K','K','K','2','2','2','2','3','3','3',
 			    		 '3','4','4','4','4','5','5','5','5','6','6','6','6','7','7','7','7','8','8','8','8','9','9','9','9','0','0','0','0'};
 		        Character[] newArray = new Character[card.length];
 		        int i = 0;
 		        for (char value : card) {
 		            newArray[i++] = Character.valueOf(value);
 		        }
-		        cards = new ArrayList<Character>(Arrays.asList(newArray));
-		       
-			}
+		        cards = new ArrayList<Character>(Arrays.asList(newArray));*/     
+	}
 		
 		
-		public void deal(Player p) {
+		/*public void deal(Player p) {
 				
 			 
 			if(cards.size() == 52) {
@@ -54,7 +55,7 @@ public class Dealer implements Player {
 		public static void shuffle() {
 			  Collections.shuffle(cards); 
 			  
-		}
+		}*/
 		
 		
 	@Override
@@ -67,7 +68,6 @@ public class Dealer implements Player {
 	
 	@Override
 	public void getCardValue(Character card) {
-		while (doesPlayerHit() == true) {
 			if (card == 'A') {
 				if (score > 11) 
 					score+=11;
@@ -92,7 +92,6 @@ public class Dealer implements Player {
 				 score += 8;
 			 else if(card == '9')
 				 score +=9;
-		}
 	}
 	
 	
@@ -105,44 +104,39 @@ public class Dealer implements Player {
 	
 	@Override
 	public void addtoHand(Character card) {
-				getCardValue(card);
 				hand.add(card);
+				getCardValue(card);
 	}
 	
 	@Override
-	public String displayCards(){
-		StringBuilder sb = new StringBuilder();
-		for(Character item: hand){
-		    if(sb.length() > 0){
-		        sb.append(',');
-		    }
-		    sb.append(item);
+	public void displayCards(){
+		System.out.print("Dealer's hand: ");
+		for(Character card : hand) {
+			System.out.print(card + " ");
 		}
-		String result = sb.toString();
-		
-		return result;
-	}
-	
-	@Override
-	public Character displayFirstCard() {
-		Character g = hand.get(0);
-		return g;
-		
+		System.out.println("\nTotal score: " + score + "\n");
 	}
 
 	@Override
-	public int placeBet() {
-		return 0;
+	public void placeBet() {
 	}
 
 
 	@Override
 	public int getWallet() {
-		
 		return 0;
 	}
-	
-	
+
+	@Override
+	public void win() {
+		
+	}
+
+
+	@Override
+	public void bust() {
+		
+	}
 }
 	
 
