@@ -67,7 +67,7 @@ public class Dealer implements Player {
 	}
 	
 	@Override
-	void getCardValue(char card) {
+	void getCardValue(Character card) {
 		while (doesPlayerHit() == true) {
 			if (card == 'A') {
 				if (score > 11) 
@@ -106,6 +106,7 @@ public class Dealer implements Player {
 	
 	@Override
 	public void addtoHand(Character card) {
+				getCardValue(card);
 				hand.add(card);
 	}
 	
