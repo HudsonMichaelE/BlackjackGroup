@@ -21,6 +21,8 @@ public interface Player {
 	boolean doesPlayerHit(); //when do you hit? 
 	void getCardValue(Character card); //sorting out card values I guess?
 	int getScore(); //returns player score
-	public void addtoHand(Character card); //adds cards to the players hand
-	public void displayCards(); // prints all the cards n the player's hand
+	void addtoHand(Character card); //adds cards to the players hand
+	String displayCards(); // displays all the cards in the player's hand, to be used at the end of the game.
+	Character displayFirstCard(); // displays only the player's first card in the game and leaves the rest hidden even when dealt a new card.
 }
+

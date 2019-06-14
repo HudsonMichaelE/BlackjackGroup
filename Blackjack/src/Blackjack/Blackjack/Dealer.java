@@ -1,18 +1,17 @@
-package src.Blackjack;
+package Blackjack;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 
 public class Dealer implements Player {
 	private static ArrayList<Character> hand;
 	private static ArrayList<Character> cards;
-	private static char[] card;
-	private int n;
 	private int score;
-	import java.util.ArrayList;
-	import java.util.Arrays;
-	import java.util.Collections;
-
+	
 		
-		public Dealer() {
+	public Dealer() {
 				char[] card = {'A','A','A','A', 'J','J','J','J','Q','Q','Q','Q','K','K','K','K','2','2','2','2','3','3','3',
 			    		 '3','4','4','4','4','5','5','5','5','6','6','6','6','7','7','7','7','8','8','8','8','9','9','9','9','0','0','0','0'};
 		        Character[] newArray = new Character[card.length];
@@ -59,15 +58,15 @@ public class Dealer implements Player {
 		
 		
 	@Override
-	boolean doesPlayerHit() {
-		if (score < = 17)
+	public boolean doesPlayerHit() {
+		if (score <= 17)
 			return true;
 		else
 			return false;
 	}
 	
 	@Override
-	void getCardValue(Character card) {
+	public void getCardValue(Character card) {
 		while (doesPlayerHit() == true) {
 			if (card == 'A') {
 				if (score > 11) 
@@ -95,11 +94,11 @@ public class Dealer implements Player {
 				 score +=9;
 		}
 	}
-	}
+	
 	
 
 	@Override
-	int getScore() {
+	public int getScore() {
 		return score;
 		
 	}
@@ -111,15 +110,40 @@ public class Dealer implements Player {
 	}
 	
 	@Override
-	public Character displayCards(){
-		Character c;
-		for (Character p : hand)
-				c = p
-		return c;
+	public String displayCards(){
+		StringBuilder sb = new StringBuilder();
+		for(Character item: hand){
+		    if(sb.length() > 0){
+		        sb.append(',');
+		    }
+		    sb.append(item);
+		}
+		String result = sb.toString();
+		
+		return result;
+	}
+	
+	@Override
+	public Character displayFirstCard() {
+		Character g = hand.get(0);
+		return g;
+		
+	}
+
+	@Override
+	public int placeBet() {
+		return 0;
+	}
+
+
+	@Override
+	public int getWallet() {
+		
+		return 0;
 	}
 	
 	
+}
 	
 
 
-}
