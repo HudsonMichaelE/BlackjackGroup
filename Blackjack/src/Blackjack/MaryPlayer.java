@@ -21,12 +21,11 @@ public class MaryPlayer implements Player{
 	}
 
 	@Override
-	public int placeBet() {
+	public void placeBet() {
 		if (wallet >= 10)
 			bet = wallet/2;
 		else if (wallet < 10)
 			bet = wallet;
-		return bet;
 	}
 
 	@Override

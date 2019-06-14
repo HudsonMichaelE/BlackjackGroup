@@ -8,6 +8,7 @@ public interface Player {
 	 * User needs to implement the following variables:
 	 * int wallet;
 	 * int score;
+	 * int bet;
 	 * if playing with character hands, needs an ArrayList<Character> hand
 	 * 
 	 * WARNING: using a 'char' for the cards breaks when at card value '10'. Use value 0 or value 1 to represent this instead
@@ -16,8 +17,9 @@ public interface Player {
 	 * 
 	 * these notes brought to you by mary
 	 */
-	int placeBet();  //your logic for how much and when to bet
+	void placeBet();  //your logic for how much and when to bet
 	int getWallet(); //how much money you have.
+	void addWinnings(); //add bet to the wallet.
 	boolean doesPlayerHit(); //when do you hit? 
 	void getCardValue(Character card); //sorting out card values I guess?
 	int getScore(); //returns player score

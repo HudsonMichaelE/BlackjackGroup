@@ -6,6 +6,8 @@ import java.util.*;
 public class BlackjackSingleton {
 	private Dealer dealer;
 	private ArrayList<Player> players;
+	private Deck deck;
+	
 	private int playerNum = 0;
 	private int pot = 0;
 	
@@ -15,6 +17,7 @@ public class BlackjackSingleton {
 	
 	private BlackjackSingleton() {
 		dealer = new Dealer();
+		deck = new Deck();
 	}
 	
 	public BlackjackSingleton getInstance() {
@@ -36,11 +39,17 @@ public class BlackjackSingleton {
 	/********************************************/
 	//facade
 	public void Round() {
-		for(int i = 0; i < players.size(); i++) {
-			pot += players(i).placeBet();
-			while(players(i).doesPlayerHit()) {
-				
+		//players turn
+		for(int i = 0; i < playerNum; i++) {
+			pot += players.get(i).placeBet();
+			while(players.get(i).doesPlayerHit()) {
+				players.get(i).addtoHand(deck.draw());
 			}
+		}
+		
+		//dealers turn
+		while(dealer.doesPlayerHit()) {
+			dealer.addtoHand(deck.draw());
 		}
 	}
 	

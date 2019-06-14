@@ -2,9 +2,8 @@ package Blackjack;
 public class AmariPlayer implements Player {
 
 	@Override
-	public int placeBet() {
+	public void placeBet() {
 		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	@Override

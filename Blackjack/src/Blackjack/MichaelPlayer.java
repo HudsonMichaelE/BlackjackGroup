@@ -1,11 +1,14 @@
 package Blackjack;
+import java.util.*;
 
 public class MichaelPlayer implements Player{
-	Arraylist<char> hand;
+	ArrayList<Character> hand;
 	int wallet;
 	int score;
+	int bet;
 	
 	public MichaelPlayer() {
+		hand = new ArrayList<Character>();
 		wallet = 100;
 		score = 0;
 	}
@@ -35,7 +38,7 @@ public class MichaelPlayer implements Player{
 	}
 	
 	@Override
-	public void addToHand(char card) {
+	public void addtoHand(Character card) {
 		//Michael has a couple of Aces up his sleeve!
 		if(score == 10) {
 			card = 'A';
@@ -69,4 +72,35 @@ public class MichaelPlayer implements Player{
 		}
 	}
 	
+	@Override
+	public void addWinnings() {
+		wallet += (2*bet);
+	}
+
+	@Override
+	public void placeBet() {
+		if(wallet > 100) {
+			bet = 50;
+		} else {
+			bet = 10;
+		}
+	}
+
+	@Override
+	public void getCardValue(Character card) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String displayCards() {
+		// TODO Auto-generated method stub
+		return "BUTTS";
+	}
+
+	@Override
+	public Character displayFirstCard() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
