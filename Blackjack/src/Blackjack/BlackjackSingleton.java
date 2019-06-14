@@ -7,6 +7,7 @@ public class BlackjackSingleton {
 	private Dealer dealer;
 	private ArrayList<Player> players;
 	private int playerNum = 0;
+	private int pot = 0;
 	
 	private static BlackjackSingleton instance;
 	
@@ -36,7 +37,10 @@ public class BlackjackSingleton {
 	//facade
 	public void Round() {
 		for(int i = 0; i < players.size(); i++) {
-			
+			pot += players(i).placeBet();
+			while(players(i).doesPlayerHit()) {
+				
+			}
 		}
 	}
 	
