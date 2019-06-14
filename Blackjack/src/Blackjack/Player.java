@@ -19,8 +19,8 @@ public interface Player {
 	int placeBet();  //your logic for how much and when to bet
 	int getWallet(); //how much money you have.
 	boolean doesPlayerHit(); //when do you hit? 
-	void getCardValue(char card); //sorting out card values I guess?
+	void getCardValue(Character card); //sorting out card values I guess?
 	int getScore(); //returns player score
-	public void addtoHand(char card); //adds cards to the players hand
-	public ArrayList<char> displayCards(); // returns all the cards n the player's hand
+	public void addtoHand(Character card); //adds cards to the players hand
+	public Character displayCards(); // returns all the cards n the player's hand
 }
