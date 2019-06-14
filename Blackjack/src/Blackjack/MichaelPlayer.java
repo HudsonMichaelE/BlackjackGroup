@@ -44,7 +44,26 @@ public class MichaelPlayer implements Player{
 			card = 'A';
 		}
 		hand.add(card);
+		getCardValue(card);
 		
+	}
+	
+	@Override
+	public void addWinnings() {
+		wallet += (2*bet);
+	}
+
+	@Override
+	public void placeBet() {
+		if(wallet > 100) {
+			bet = 50;
+		} else {
+			bet = 10;
+		}
+	}
+
+	@Override
+	public void getCardValue(Character card) {
 		switch(card) {
 			case 'A':	score += 11;
 						break;
@@ -71,36 +90,10 @@ public class MichaelPlayer implements Player{
 						break;
 		}
 	}
-	
-	@Override
-	public void addWinnings() {
-		wallet += (2*bet);
-	}
-
-	@Override
-	public void placeBet() {
-		if(wallet > 100) {
-			bet = 50;
-		} else {
-			bet = 10;
-		}
-	}
-
-	@Override
-	public void getCardValue(Character card) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public String displayCards() {
 		// TODO Auto-generated method stub
 		return "BUTTS";
-	}
-
-	@Override
-	public Character displayFirstCard() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

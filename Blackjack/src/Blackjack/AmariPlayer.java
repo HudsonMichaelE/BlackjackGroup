@@ -47,11 +47,4 @@ public class AmariPlayer implements Player {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Character displayFirstCard() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
