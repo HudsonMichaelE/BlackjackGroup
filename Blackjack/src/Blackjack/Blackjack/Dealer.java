@@ -117,7 +117,6 @@ public class Dealer implements Player {
 
 	@Override
 	public boolean stand() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

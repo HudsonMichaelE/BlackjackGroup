@@ -139,7 +139,12 @@ public class AmariPlayer implements Player {
 
 			@Override
 			public boolean stand() {
-				// TODO Auto-generated method stub
+				if(wallet == 500) {
+					return true;
+				}
+				else if(wallet == 0) {
+					return true;
+				}
 				return false;
 			}
 	    }
