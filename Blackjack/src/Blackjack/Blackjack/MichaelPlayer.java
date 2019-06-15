@@ -117,16 +117,4 @@ public class MichaelPlayer implements Player{
 		}
 		return false;
 	}
-
-	@Override
-	public void removeCards() {
-		hand.removeAll(hand);
-		
-	}
-
-	@Override
-	public void setScore(int i) {
-		score = i;
-		
-	}
 }
