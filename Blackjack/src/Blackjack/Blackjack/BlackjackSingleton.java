@@ -88,21 +88,42 @@ public class BlackjackSingleton {
 		if(dealer.getScore() == 21) {
 			for(Player player : players) {
 				player.bust();
+				player.setScore(0);
+				player.removeCards();
 			}
+			dealer.setScore(0);
+			dealer.removeCards();
+			deck.reshuffle();
+			System.out.println("Dealer wins");
 		} else if (dealer.getScore() > 21) {
 			for(Player player : players) {
 				player.win();
+				System.out.println(player.getClass().getSimpleName().replaceAll("Player", "")  + " wins\n");
+				 player.setScore(0);
+				 player.removeCards();
 			}
+			dealer.setScore(0);
+			dealer.removeCards();
+			deck.reshuffle();
 		} else {
 			for(Player player : players) {
 				if(player.getScore() <= 21 &&  player.getScore() > dealer.getScore()) {
 					player.win();
+					System.out.println(player.getClass().getName().replaceAll("Player", "") + " wins\n");
+					player.setScore(0);
+					player.removeCards();
 				} else {
 					player.bust();
+					System.out.println("Dealer wins\n");
+					player.setScore(0);
+					player.removeCards();
+					dealer.setScore(0);
+					dealer.removeCards();
 				}
+				deck.reshuffle();
 			}
-		}
-		
+			
+			}
 		//check win condition
 		for(int i = 0; i < playerNum; i++) {
 			if(players.get(i).stand()) {
