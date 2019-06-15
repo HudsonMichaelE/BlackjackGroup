@@ -135,6 +135,13 @@ public class AmariPlayer implements Player {
 	    		bet = 0;
 	    		
 	    	}
+
+
+			@Override
+			public boolean stand() {
+				// TODO Auto-generated method stub
+				return false;
+			}
 	    }
 	    	
 

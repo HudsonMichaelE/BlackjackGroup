@@ -67,4 +67,34 @@ public class MaryPlayer implements Player{
 		return score;
 	}
 
+	@Override
+	public void win() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void bust() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addtoHand(Character card) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void displayCards() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean stand() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

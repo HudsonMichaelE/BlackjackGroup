@@ -108,4 +108,10 @@ public class MichaelPlayer implements Player{
 		wallet -= bet;
 		bet = 0;
 	}
+
+	@Override
+	public boolean stand() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
