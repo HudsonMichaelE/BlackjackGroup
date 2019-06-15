@@ -119,6 +119,18 @@ public class Dealer implements Player {
 	public boolean stand() {
 		return false;
 	}
+
+	@Override
+	public void removeCards() {
+		hand.removeAll(hand);
+		
+	}
+
+	@Override
+	public void setScore(int i) {
+		score = i;
+		
+	}
 }
 	
 

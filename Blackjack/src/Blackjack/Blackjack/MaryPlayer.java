@@ -97,4 +97,16 @@ public class MaryPlayer implements Player{
 		return false;
 	}
 
+	@Override
+	public void removeCards() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setScore(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

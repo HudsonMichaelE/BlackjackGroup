@@ -18,11 +18,15 @@ public class AmariPlayer implements Player {
 	                   score = 0;
 	 
 	          }
+	        
+	        @Override
+	        public void removeCards() {
+	        	hand.removeAll(hand);
+	        }
 	 
-	 
-	           @Override
-	           public void placeBet() {
-	                       while(wallet != 0){
+	          @Override
+	          public void placeBet() {
+	                      
 	                                 if(wallet >= 150){
 	                                         bet = 30;
 	                                  }
@@ -33,7 +37,7 @@ public class AmariPlayer implements Player {
 	                                  else{
 	                                        bet = 10;
 	                                 }
-	                         }
+	                                 System.out.println("Amari bets " + bet);
 	          }
 	 
 	         @Override
@@ -146,6 +150,12 @@ public class AmariPlayer implements Player {
 					return true;
 				}
 				return false;
+			}
+
+			@Override
+			public void setScore(int i) {
+				score = i;
+				
 			}
 	    }
 	    	
