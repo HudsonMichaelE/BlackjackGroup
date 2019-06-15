@@ -24,6 +24,6 @@ public interface Player {
 	int getScore(); //returns player score
 	void addtoHand(Character card); //adds cards to the players hand
 	void displayCards(); // displays all the cards in the player's hand, to be used at the end of the game.
-	
+	boolean stand(); // after a certain amount, player leaves the game
 }
 
