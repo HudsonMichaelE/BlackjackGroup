@@ -139,10 +139,11 @@ public class AmariPlayer implements Player {
 
 			@Override
 			public boolean stand() {
-				if(wallet >= 500 || wallet == 0) {
-					System.out.println("Amari leaves the table with " + wallet);
+				if(wallet == 500) {
 					return true;
-					
+				}
+				else if(wallet == 0) {
+					return true;
 				}
 				return false;
 			}
