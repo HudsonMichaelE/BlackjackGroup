@@ -111,7 +111,10 @@ public class MichaelPlayer implements Player{
 
 	@Override
 	public boolean stand() {
-		// TODO Auto-generated method stub
+		if(wallet < 10 || wallet > 500) {
+			System.out.println("Michael leave the table with " + wallet);
+			return true;
+		}
 		return false;
 	}
 }

@@ -64,5 +64,7 @@ public class Blackjack {
 		}
 		System.out.println();
 		System.out.println("Game Over, come back with more money!");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("PipeWorks™ Interactive.\nTrademark 1962");
 	}
 }

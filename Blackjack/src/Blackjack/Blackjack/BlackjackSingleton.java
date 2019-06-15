@@ -102,10 +102,18 @@ public class BlackjackSingleton {
 				}
 			}
 		}
+		
+		//check win condition
+		for(int i = 0; i < playerNum; i++) {
+			if(players.get(i).stand()) {
+				players.remove(i);
+				playerNum--;
+			}
+		}
 	}
 	
 	public boolean isGameOver() {
-		if(players.size() < 1) {
+		if(playerNum < 1) {
 			return true;
 		}
 		return false;
