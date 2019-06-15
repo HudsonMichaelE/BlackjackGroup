@@ -104,4 +104,11 @@ public class BlackjackSingleton {
 		}
 	}
 	
+	public boolean isGameOver() {
+		if(players.size() < 1) {
+			return true;
+		}
+		return false;
+	}
+	
 }
