@@ -52,7 +52,7 @@ public class BlackjackSingleton {
 	 * @throws InterruptedException ******************************************/
 	//facade
 	public void Round() throws InterruptedException {
-		System.out.println("New Round");
+		System.out.println("New Round-------------");
 		//players turn
 		for(int i = 0; i < playerNum; i++) {
 			players.get(i).placeBet();
@@ -79,26 +79,36 @@ public class BlackjackSingleton {
 		while(dealer.doesPlayerHit()) {
 			dealer.addtoHand(deck.draw());
 			dealer.displayCards();
+			TimeUnit.SECONDS.sleep(1);
 		}
 		
 		endRound();
 	}
 	
-	public void endRound() {
+	public void endRound() throws InterruptedException {
 		if(dealer.getScore() == 21) {
 			for(Player player : players) {
 				player.bust();
+				TimeUnit.SECONDS.sleep(1);
 			}
 		} else if (dealer.getScore() > 21) {
 			for(Player player : players) {
-				player.win();
+				if(player.getScore() <= 21) {
+					player.win();
+					TimeUnit.SECONDS.sleep(1);
+				} else {
+					player.bust();
+					TimeUnit.SECONDS.sleep(1);
+				}
 			}
 		} else {
 			for(Player player : players) {
 				if(player.getScore() <= 21 &&  player.getScore() > dealer.getScore()) {
 					player.win();
+					TimeUnit.SECONDS.sleep(1);
 				} else {
 					player.bust();
+					TimeUnit.SECONDS.sleep(1);
 				}
 			}
 		}
@@ -110,6 +120,8 @@ public class BlackjackSingleton {
 				playerNum--;
 			}
 		}
+		dealer.stand(); //clears dealer hand for next round.
+		deck.reshuffle(); //pulls the cards back in the deck.
 	}
 	
 	public boolean isGameOver() {

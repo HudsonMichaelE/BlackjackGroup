@@ -85,7 +85,11 @@ public class Dealer implements Player {
 	public void displayCards(){
 		System.out.print("Dealer's hand: ");
 		for(Character card : hand) {
-			System.out.print(card + " ");
+			if(card.equals('0')) {
+				System.out.print("10 ");
+			} else {
+				System.out.print(card + " ");
+			}
 		}
 		System.out.println("\nTotal score: " + score + "\n");
 	}
@@ -117,7 +121,13 @@ public class Dealer implements Player {
 
 	@Override
 	public boolean stand() {
+		clear();
 		return false;
+	}
+	
+	private void clear() {
+		hand.clear();
+		score = 0;
 	}
 }
 	

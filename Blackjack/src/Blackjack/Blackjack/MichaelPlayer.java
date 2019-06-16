@@ -52,7 +52,10 @@ public class MichaelPlayer implements Player{
 	@Override
 	public void win() {
 		wallet += bet;
+		System.out.println("Michael won " + bet);
+		System.out.println("Michael current has " + wallet);
 		bet = 0;
+		clear();
 	}
 
 	@Override
@@ -98,7 +101,11 @@ public class MichaelPlayer implements Player{
 	public void displayCards() {
 		System.out.print("Michael's hand: ");
 		for(Character card : hand) {
-			System.out.print(card + " ");
+			if(card.equals('0')) {
+				System.out.print("10 ");
+			} else {
+				System.out.print(card + " ");
+			}
 		}
 		System.out.println("\nTotal score: " + score + "\n");
 	}
@@ -106,7 +113,10 @@ public class MichaelPlayer implements Player{
 	@Override
 	public void bust() {
 		wallet -= bet;
+		System.out.println("Michael lost " + bet);
+		System.out.println("Michael current has " + wallet);
 		bet = 0;
+		clear();
 	}
 
 	@Override
@@ -116,5 +126,10 @@ public class MichaelPlayer implements Player{
 			return true;
 		}
 		return false;
+	}
+	
+	private void clear() {
+		hand.clear();
+		score = 0;
 	}
 }

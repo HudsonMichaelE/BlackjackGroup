@@ -44,12 +44,6 @@ public class Blackjack {
 			TimeUnit.SECONDS.sleep(1);
 		}
 		System.out.println();
-		System.out.print("Dealing cards");
-		for(int i = 0; i < 5; i++) {
-			System.out.print(".");
-			TimeUnit.SECONDS.sleep(1);
-		}
-		System.out.println();
 		
 		//Round Loop
 		while(!instance.isGameOver()) {

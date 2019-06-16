@@ -96,5 +96,9 @@ public class MaryPlayer implements Player{
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
+	private void clear() {
+		hand.clear();
+		score = 0;
+	}
 }

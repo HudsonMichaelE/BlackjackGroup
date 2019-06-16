@@ -22,7 +22,7 @@ public class AmariPlayer implements Player {
 	 
 	           @Override
 	           public void placeBet() {
-	                       while(wallet != 0){
+	                       //while(wallet != 0){ <- creates an infinite loop
 	                                 if(wallet >= 150){
 	                                         bet = 30;
 	                                  }
@@ -33,7 +33,8 @@ public class AmariPlayer implements Player {
 	                                  else{
 	                                        bet = 10;
 	                                 }
-	                         }
+	                                 System.out.println("Amari bets " + bet);
+	                         //}
 	          }
 	 
 	         @Override
@@ -114,7 +115,11 @@ public class AmariPlayer implements Player {
 	    	public void displayCards(){
 	    		System.out.print("Amari's hand: ");
 	    		for(Character card : hand) {
-	    			System.out.print(card + " ");
+	    			if(card.equals('0')) {
+	    				System.out.print("10 ");
+	    			} else {
+	    				System.out.print(card + " ");
+	    			}
 	    		}
 	    		System.out.println("\nTotal score: " + score + "\n");
 	    	}
@@ -124,28 +129,37 @@ public class AmariPlayer implements Player {
 	    	@Override
 	    	public void win() {
 	    		wallet += bet;
+	    		System.out.println("Amari won " + bet);
+	    		System.out.println("Amari current has " + wallet);
 	    		bet = 0;
-	    		
+	    		clear();
 	    	}
 
 
 	    	@Override
 	    	public void bust() {
 	    		wallet -= bet;
+	    		System.out.println("Amari lost " + bet);
+	    		System.out.println("Amari current has " + wallet);
 	    		bet = 0;
-	    		
+	    		clear();
 	    	}
 
 
 			@Override
 			public boolean stand() {
-				if(wallet == 500) {
+				if(wallet >= 500 || wallet == 0) {
+					System.out.println("Amari leaves the table with " + wallet);
 					return true;
-				}
-				else if(wallet == 0) {
-					return true;
+					
 				}
 				return false;
+			}
+			
+			private void clear() {
+				hand.clear();
+				score = 0;
+				count = 0;
 			}
 	    }
 	    	
