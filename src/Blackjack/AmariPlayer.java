@@ -130,7 +130,7 @@ public class AmariPlayer implements Player {
 	    	public void win() {
 	    		wallet += bet;
 	    		System.out.println("Amari won " + bet);
-	    		System.out.println("Amari current has " + wallet);
+	    		System.out.println("Amari currently has " + wallet);
 	    		bet = 0;
 	    		clear();
 	    	}
@@ -140,7 +140,7 @@ public class AmariPlayer implements Player {
 	    	public void bust() {
 	    		wallet -= bet;
 	    		System.out.println("Amari lost " + bet);
-	    		System.out.println("Amari current has " + wallet);
+	    		System.out.println("Amari currently has " + wallet);
 	    		bet = 0;
 	    		clear();
 	    	}

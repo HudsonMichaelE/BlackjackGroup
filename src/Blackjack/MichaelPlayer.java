@@ -53,7 +53,7 @@ public class MichaelPlayer implements Player{
 	public void win() {
 		wallet += bet;
 		System.out.println("Michael won " + bet);
-		System.out.println("Michael current has " + wallet);
+		System.out.println("Michael currently has " + wallet);
 		bet = 0;
 		clear();
 	}
@@ -114,7 +114,7 @@ public class MichaelPlayer implements Player{
 	public void bust() {
 		wallet -= bet;
 		System.out.println("Michael lost " + bet);
-		System.out.println("Michael current has " + wallet);
+		System.out.println("Michael currently has " + wallet);
 		bet = 0;
 		clear();
 	}

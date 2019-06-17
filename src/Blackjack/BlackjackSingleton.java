@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class BlackjackSingleton {
 	private Dealer dealer;
 	private ArrayList<Player> players;
+	private PlayerFactory playerFactory;
 	private Deck deck;
 	
 	private int playerNum = 0;
@@ -19,6 +20,7 @@ public class BlackjackSingleton {
 		dealer = new Dealer();
 		deck = new Deck();
 		players = new ArrayList<Player>();
+		playerFactory = new PlayerFactory();
 	}
 	
 	public static BlackjackSingleton getInstance() {
@@ -30,19 +32,13 @@ public class BlackjackSingleton {
 	}
 	
 	public boolean addPlayer(String name) {
-		Player newPlayer;
-		try {
-			newPlayer = (Player) Class.forName("Blackjack." + name + "Player").newInstance();
-		} catch (InstantiationException e) {
-			return false;
-		} catch (IllegalAccessException e) {
-			return false;
-		} catch (ClassNotFoundException e) {
-			return false;
+		Player newPlayer = playerFactory.createPlayer(name);
+		if (newPlayer!=null){
+			players.add(newPlayer);
+			playerNum += 1;
+			return true;
 		}
-		players.add(newPlayer);
-		playerNum += 1;
-		return true;
+		return false;
 	}
 	
 	public Dealer getDealer() {

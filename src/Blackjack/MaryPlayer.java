@@ -3,21 +3,16 @@ package Blackjack;
 import java.util.ArrayList;
 
 public class MaryPlayer implements Player{
-	
-	Player mary;
 	ArrayList<Character> hand;
 	int wallet;
 	public int bet;
 	int score;
 	
-	private void MaryPlayer() {
-		
-	}
-	
-	public MaryPlayer getInstance() {
-		if (mary == null) 
-			mary = new MaryPlayer();
-		return (MaryPlayer) mary;
+	public MaryPlayer() {
+		hand = new ArrayList<Character>();
+		wallet = 100;
+		bet = 0;
+		score = 0;
 	}
 
 	@Override
@@ -26,6 +21,7 @@ public class MaryPlayer implements Player{
 			bet = wallet/2;
 		else if (wallet < 10)
 			bet = wallet;
+		System.out.println("Mary bets " + bet);
 	}
 
 	@Override
@@ -40,6 +36,13 @@ public class MaryPlayer implements Player{
 		else
 			return false;
 	}
+	
+	@Override
+	public void addtoHand(Character card) {
+		hand.add(card);
+		getCardValue(card);
+		
+	}
 
 	@Override
 	public void getCardValue(Character card) {
@@ -53,13 +56,26 @@ public class MaryPlayer implements Player{
 			 else if (card == 'J' || card == '0')   //use 0 to make 10 a single char
 				score+=10;
 			 else if (card == 'Q') 
-				score+=11;
+				score+=10;
 			 else if (card == 'K') 
-				 score +=12;
-			 else if (Character.getNumericValue(card) > 1)
-				 score +=card;
+				 score +=10;
+			 else
+				 score += Character.getNumericValue(card);
 			
 		}
+	}
+	
+	@Override
+	public void displayCards() {
+		System.out.print("Mary's hand: ");
+		for(Character card : hand) {
+			if(card.equals('0')) {
+				System.out.print("10 ");
+			} else {
+				System.out.print(card + " ");
+			}
+		}
+		System.out.println("\nTotal score: " + score + "\n");
 	}
 
 	@Override
@@ -69,31 +85,29 @@ public class MaryPlayer implements Player{
 
 	@Override
 	public void win() {
-		// TODO Auto-generated method stub
-		
+		wallet += bet;
+		System.out.println("Mary won " + bet);
+		System.out.println("Mary currently has " + wallet);
+		bet = 0;
+		clear();
 	}
 
 	@Override
 	public void bust() {
-		// TODO Auto-generated method stub
-		
+		wallet -= bet;
+		System.out.println("Mary lost " + bet);
+		System.out.println("Mary currently has " + wallet);
+		bet = 0;
+		clear();
 	}
 
-	@Override
-	public void addtoHand(Character card) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void displayCards() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public boolean stand() {
-		// TODO Auto-generated method stub
+		if(wallet >= 500 || wallet == 0) {
+			System.out.println("Mary leaves the table with $" + wallet);
+			return true;
+		}
 		return false;
 	}
 	
